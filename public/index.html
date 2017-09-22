@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Message-Bored: An ANGULAR message board</title>
+
+  <base href="/">
+</head>
+<body ng-app="app">
+
+  <div>
+    Navigation:<br>
+    <a ng-href="/">HOME</a>
+    <a ng-href="/users">USERS</a>
+    <a ng-href="/users/join">JOIN</a>
+    <a ng-href="/api/messages/latest">LATEST</a>
+  </div>
+
+  <ng-view></ng-view>
+
+  <!-- ANGULAR SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js" type="text/javascript"></script>
+
+  <script src="./scripts/app.js" type="text/javascript"></script>
+  <script src="./scripts/constants.js" type="text/javascript"></script>
+
+  <!-- CONTROLLERS -->
+  <script src="./scripts/usersController.js" type="text/javascript"></script>
+  <script src="./scripts/topicsController.js" type="text/javascript"></script>
+  <script src="./scripts/messagesController.js" type="text/javascript"></script>
+
+  <!-- SERVICES -->
+  <script src="./scripts/userService.js" type="text/javascript"></script>
+</body>
+</html>
