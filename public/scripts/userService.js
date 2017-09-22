@@ -13,14 +13,11 @@ angular.module('app')
     this.addNewUser = function (newUser) {
       var config = {
         headers: {
-          'Accept': 'application/x-www-form-urlencoded',
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Content-Type': 'application/json'
         }
       };
 
-      var newObj = `username=${newUser.username}`;
-
-      return $http.post('/api/users/join', newObj, config)
+      return $http.post('/api/users/join', newUser, config)
         .then(user => {
           console.log("SERVICE ADD USER", user);
         })
@@ -29,8 +26,24 @@ angular.module('app')
         });
     };
 
-    this.loginUser = function () {
+    this.getUserMsgs = function(id) {
+      return $http.get(`/api/users/${id}`)
+        .then(user => {
+          return user.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
 
+    this.loginUser = function (username) {
+      return $http.get(`/api/users/find/${username}`)
+        .then(user => {
+          return user.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     };
 
     this.logoutUser = function() {

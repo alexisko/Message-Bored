@@ -24,7 +24,7 @@ const topicsRouter = require('./routes/topics.js');
 const messagesRouter = require('./routes/messages.js');
 
 // BODY-PARSER
-app.use(bp.urlencoded({extended:true}));
+app.use(bp.json({extended:true}));
 
 // PUBLIC STATIC FILES
 app.use(express.static('public'));

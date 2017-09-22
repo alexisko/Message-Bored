@@ -20,13 +20,29 @@ router.route('/')
 router.route('/join')
 // Create and respond with a new user
   .post((req, res) => {
-    console.log(req);
-    console.log("HELLO IM ON MY POSt", req.body);
     User.create({
       username: req.body.username
     })
       .then(user => {
         console.log("NEW USER:", user);
+        res.send(user);
+        res.end();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+
+router.route('/find/:username')
+  // Find user by username
+  .get((req, res) => {
+    User.findOne({
+      where: {
+        username: req.params.username
+      }
+    })
+      .then(user => {
+        console.log("USER FOUND");
         res.send(user);
         res.end();
       })

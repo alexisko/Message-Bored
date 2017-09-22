@@ -11,12 +11,12 @@ angular.module('app')
         templateUrl: 'join.html',
         controller: 'newUserController'
       })
-      .when('/api/users/:id', {
-        templateUrl: 'temp.html',
-        controller: 'usersController'
+      .when('/users/:id', {
+        templateUrl: 'user-messages.html',
+        controller: 'getUserMsgsController'
       })
-      .when('/api/topics/:id', {
-        templateUrl: 'temp.html'
+      .when('/topic/new', {
+        templateUrl: 'new-topic.html'
       })
       .when('/api/messages/latest', {
         templateUrl: 'temp.html'

@@ -12,11 +12,24 @@
 <body ng-app="app">
 
   <div>
+    <div ng-controller="loginUserController">
+      <input type="text" name="username" ng-model="username" placeholder="Enter Username">
+      <input type="button" value="Login" ng-click="login()">
+    </div>
+  </div>
+  <div>
+    <div ng-controller="logoutUserController">
+      <input type="button" value="Logout" ng-click="logout()">
+    </div>
+  </div>
+
+  <div>
     Navigation:<br>
     <a ng-href="/">HOME</a>
     <a ng-href="/users">USERS</a>
     <a ng-href="/users/join">JOIN</a>
-    <a ng-href="/api/messages/latest">LATEST</a>
+    <a ng-href="/messages/latest">LATEST</a>
+    <a ng-href="/topic/new">NEW TOPIC</a>
   </div>
 
   <ng-view></ng-view>
