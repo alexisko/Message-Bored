@@ -11,6 +11,7 @@
 </head>
 <body ng-app="app">
 
+  <!-- LOGIN/LOGOUT -->
   <div>
     <div ng-controller="loginUserController">
       <input type="text" name="username" ng-model="username" placeholder="Enter Username">
@@ -23,13 +24,20 @@
     </div>
   </div>
 
+  <!-- NAVIGATION -->
   <div>
-    Navigation:<br>
-    <a ng-href="/">HOME</a>
-    <a ng-href="/users">USERS</a>
-    <a ng-href="/users/join">JOIN</a>
-    <a ng-href="/messages/latest">LATEST</a>
-    <a ng-href="/topic/new">NEW TOPIC</a>
+    <div ng-controller="navController">
+      Navigation:<br>
+      <a ng-href="/">HOME</a>
+      <a ng-href="/users">USERS</a>
+      <a ng-href="/users/join">JOIN</a>
+      <a ng-href="/topic/new" ng-show="loggedIn()">CREATE NEW TOPIC</a>
+      <a ng-href="/messages/latest">LATEST</a>
+    </div>
+  </div>
+
+  <div>
+    <a ng-href="/topic/1">test</a>
   </div>
 
   <ng-view></ng-view>
@@ -45,8 +53,11 @@
   <script src="./scripts/usersController.js" type="text/javascript"></script>
   <script src="./scripts/topicsController.js" type="text/javascript"></script>
   <script src="./scripts/messagesController.js" type="text/javascript"></script>
+  <script src="./scripts/navController.js" type="text/javascript"></script>
 
   <!-- SERVICES -->
   <script src="./scripts/userService.js" type="text/javascript"></script>
+  <script src="./scripts/topicService.js" type="text/javascript"></script>
+  <script src="./scripts/messageService.js" type="text/javascript"></script>
 </body>
 </html>

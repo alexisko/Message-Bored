@@ -16,10 +16,19 @@ angular.module('app')
         controller: 'getUserMsgsController'
       })
       .when('/topic/new', {
-        templateUrl: 'new-topic.html'
+        templateUrl: 'new-topic.html',
+        controller: 'createTopicController'
       })
-      .when('/api/messages/latest', {
-        templateUrl: 'temp.html'
+      .when('/topic/:id', {
+        templateUrl: 'topic.html'
+      })
+      .when('/topic/update/:id', {
+        templateUrl: 'update-topic.html',
+        controller: 'updateTopicController'
+      })
+      .when('/messages/latest', {
+        templateUrl: 'latest.html',
+        controller: 'getLatestMsgsController'
       });
 
     $locationProvider.html5Mode(true);

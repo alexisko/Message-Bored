@@ -31,6 +31,21 @@ router.route('/')
   });
 
 router.route('/:id')
+  // Get and respond with specified topic by id
+  .get((req, res) => {
+    Topic.findOne({
+      where: {
+        id: parseInt(req.params.id)
+      }
+    })
+      .then(topic => {
+        res.send(topic);
+        res.end();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  })
   // Update and respond with the updated topic
   .put((req, res) => {
     Topic.update({

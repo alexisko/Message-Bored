@@ -33,7 +33,7 @@ router.route('/latest')
         model: User,
         as: 'Author'
       }],
-      limit: 3,
+      limit: 10,
       order: [['createdAt', 'DESC']]
     })
       .then(messages => {

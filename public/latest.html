@@ -1,0 +1,9 @@
+<div ng-controller="getLatestMsgsController">
+  <h1>LATEST MESSAGES</h1>
+  <div ng-repeat="msg in messages">
+    <h1>{{ msg.body }}</h1>
+    <h3>Author: {{ msg.Author.username }}</h3>
+    <h3>Topic: {{ msg.Topic.name }}</h3>
+    <p>Created at: {{ msg.createdAt }}</p>
+  </div>
+</div>

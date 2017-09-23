@@ -1,5 +1,6 @@
 angular.module('app')
   .service('UserService', ['$http', function($http) {
+    // Get all users from db
     this.getUsers = function () {
       return $http.get('/api/users')
         .then(users => {
@@ -10,6 +11,7 @@ angular.module('app')
         });
     };
 
+    // Add new user to db
     this.addNewUser = function (newUser) {
       var config = {
         headers: {
@@ -26,6 +28,7 @@ angular.module('app')
         });
     };
 
+    // Get all messages from specified user
     this.getUserMsgs = function(id) {
       return $http.get(`/api/users/${id}`)
         .then(user => {
@@ -36,6 +39,7 @@ angular.module('app')
         });
     };
 
+    // Search for user in db for login
     this.loginUser = function (username) {
       return $http.get(`/api/users/find/${username}`)
         .then(user => {
@@ -44,9 +48,5 @@ angular.module('app')
         .catch(err => {
           console.log(err);
         });
-    };
-
-    this.logoutUser = function() {
-
     };
   }]);
